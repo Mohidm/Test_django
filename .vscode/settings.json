@@ -1,0 +1,5 @@
+{
+    "git.ignoreLimitWarning": true,
+    "python.pythonPath": "/usr/bin/python3.6",
+    "git.autoRepositoryDetection": false
+}

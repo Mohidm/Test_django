@@ -1,0 +1,36 @@
+{% extends "admin/base.html" %}
+{% load static %}   
+{% block title %}{{ title}} | Ecom Data Admin Dashboard {% endblock %}
+{% block extrastyle %}
+  
+<style>
+  #header{
+    background: #3c795e;
+  }
+  .module h2, .module caption, .inline-group h2 {
+   
+    background: #79c892;
+  }
+  a:link, a:visited {
+    color: #333;
+    }
+
+  div.breadcrumbs {
+    background: #79c8a4;
+    color: #333;
+   }
+   body {
+ 
+    background: #efefef;
+   
+   }
+   
+</style>
+
+{% endblock %}
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Ecom Data Admin Dashboard</a></h1>
+{% endblock %}
+
+
+{% block nav-global %}{% endblock %}
