@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'q=kb3yg*etob*=js(89h#^68cxw*vp2eu45*dh&#f4hpedxl_n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -38,7 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'kelloggs_pringles',
-    'import_export'
+    'import_export',
+    'prioritylist',
+    'rangefilter',
+    'regions'
+
+    
 ]
 
 MIDDLEWARE = [
@@ -81,7 +87,7 @@ DATABASES = {
        'NAME': 'kelloggspringles',
         'USER': 'admin',
         'PASSWORD': 'admin123',
-        'HOST': 'database-1.cmc5elwmvbur.ap-south-1.rds.amazonaws.com',   # Or an IP Address that your DB is hosted on
+        'HOST': 'database-1.cmc5elwmvbur.ap-south-1.rds.amazonaws.com',   
         'PORT': '3306',
     }
 }
@@ -123,10 +129,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATICFILES_DIRS = (
-os.path.join(BASE_DIR, "E6000_stitch_techniques", "static"),
-) 
+# STATICFILES_DIRS = (
+# os.path.join(BASE_DIR, "E6000_stitch_techniques", "static"),
+# ) 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]
+# STATIC_URL = '/static/'
 STATIC_URL = '/static/'
+MEDIA_URL = '/images/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]

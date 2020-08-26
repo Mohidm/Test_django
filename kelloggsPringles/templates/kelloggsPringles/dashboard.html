@@ -1,0 +1,89 @@
+
+  {% extends 'kelloggsPringles/main.html'%}
+  {% block content %}
+  {% include 'kelloggsPringles/status.html'%}
+
+  <br>
+
+<div class="row">
+	<div class="col-md-6">
+		<h5>Trending In Stock</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table table-lg">
+				<tr>
+					<th>Product Name</th>
+					<th>Brand</th>
+					<th>Platform</th>
+					<th>Stock</th>
+					<th>Region</th>
+				</tr>
+				{% for i in fr_items_stock %}
+				<tr>
+					<td> {{i.name}} {{i.quantity}}</td>
+					<td>{{i.brand}}</td>
+					<td>Fairprice</td>
+					<td>{{i.stock}}</td>
+					<td>SG</td>
+				</tr>
+		
+				{% endfor %}
+			
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<h5>Trending Sold Out</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table table-lg">
+				<tr>
+					<th>Product Name</th>
+					<th>Brand</th>
+					<th>Platform</th>
+					<th>Region</th>
+				</tr>
+				{% for i in fr_items %}
+				<tr>
+					<td> {{i.name}} {{i.quantity}}</td>
+					<td>{{i.brand}}</td>
+					<td>Fairprice</td>
+					<td>SG</td>
+				</tr>
+		
+				{% endfor %}
+				{% for i in sh_sg_items %}
+				<tr>
+					<td> {{i.name}} </td>
+					<td>{{i.brand}}</td>
+					<td>Shopee</td>
+					<td>{{i.region}}</td>
+				</tr>
+		
+				{% endfor %}
+				{% for i in sh_my_items %}
+				<tr>
+					<td> {{i.name}} </td>
+					<td>{{i.brand}}</td>
+					<td>Shopee</td>
+					<td>{{i.region}}</td>
+				</tr>
+		
+				{% endfor %}
+				{% for i in sh_id_items %}
+				<tr>
+					<td> {{i.name}}</td>
+					<td>{{i.brand}}</td>
+					<td>Shopee</td>
+					<td>{{i.region}}</td>
+				</tr>
+		
+			    {% endfor %}
+		
+			</table>
+		</div>
+	</div>
+
+</div>
+  {% endblock %}

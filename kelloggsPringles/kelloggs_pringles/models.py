@@ -104,11 +104,9 @@ class DjangoMigrations(models.Model):
     app = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     applied = models.DateTimeField()
-
     class Meta:
         managed = False
         db_table = 'django_migrations'
-
 
 class DjangoSession(models.Model):
     session_key = models.CharField(primary_key=True, max_length=40)
@@ -120,7 +118,7 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 
-class FairpriceData(models.Model):
+class Fairprice(models.Model):
     item_id = models.CharField(max_length=45, blank=True, null=True)
     name = models.CharField(max_length=145, blank=True, null=True)
     brand = models.CharField(max_length=45, blank=True, null=True)
@@ -129,26 +127,32 @@ class FairpriceData(models.Model):
     stock = models.CharField(max_length=45, blank=True, null=True)
     date = models.DateTimeField(blank=True, null=True)
     slnum = models.BigAutoField(primary_key=True)
+    stock_status = models.CharField(max_length=45, blank=True, null=True)
+    has_priority = models.BooleanField(default=False)
+    region = models.CharField(max_length=45, blank=False, null=False)
     def __str__(self):
-        return self.name+'   '+self.quantity
+        return self.name+'  '+' '+self.stock_status+' '+str(self.date)
 
     class Meta:
         managed = False
         db_table = 'fairprice_data'
 
-
-class ShopeeData(models.Model):
+class Shopee(models.Model):
     item_id = models.CharField(max_length=45, blank=True, null=True)
     name = models.CharField(max_length=145, blank=True, null=True)
     brand = models.CharField(max_length=45, blank=True, null=True)
     price = models.CharField(max_length=45, blank=True, null=True)
     stock = models.CharField(max_length=45, blank=True, null=True)
     sold = models.CharField(max_length=45, blank=True, null=True)
-    domain = models.CharField(max_length=45, blank=True, null=True)
+    region = models.CharField(max_length=45, blank=True, null=True)
     date = models.DateTimeField(blank=True, null=True)
     slnum = models.BigAutoField(primary_key=True)
+    stock_status = models.CharField(max_length=45, blank=True, null=True)
+    has_priority = models.BooleanField(default=False)
     def __str__(self):
-        return self.name+'   '+self.domain
+        return self.name+' '+self.region+' '+self.stock_status+' '+str(self.date)
     class Meta:
         managed = False
         db_table = 'shopee_data'
+        
+     
